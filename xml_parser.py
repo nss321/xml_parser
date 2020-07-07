@@ -4,17 +4,14 @@ import openpyxl as xl
 from os import listdir as dir
 import re, os
 import sys
-import html
+#import html
 
 # parser = etree.XMLParser(recover=True)
-parser = Et.XMLParser(encoding="utf-8")
+# parser = Et.XMLParser(encoding="utf-8")
 
-# save_path = 'C:\\Users\\배정훈\\Desktop\\xml_test.cs'  # 엑셀파일 경로
-# xml_path = 'C:\\Users\\배정훈\\Downloads\\File_responses\\' # xml 파일 경로
-
-save_path = 'C:\\Users\\ZIPTOSS\\Downloads\\xml_test.xlsx'  # 엑셀파일 경로
-# xml_path = 'C:\\Users\\ZIPTOSS\\Downloads\\drive-download-20200623T064058Z-001\\'  # xml 파일 경로
-xml_path = 'C:\\Users\\ZIPTOSS\\Downloads\\XML 파일 업로드 (File responses)-20200706T071726Z-001\\XML 파일 업로드 (File responses)\\'
+save_path = 'C:\\Users\\user\\Downloads\\xml_test.xlsx'  # 엑셀파일 경로
+# xml_path = 'C:\\Users\\user\\Downloads\\drive-download-20200623T064058Z-001\\'  # xml 파일 경로
+xml_path = 'C:\\Users\\user\\Downloads\\XML 파일 업로드 (File responses)-20200706T071726Z-001\\XML 파일 업로드 (File responses)\\'
 
 target = ['Operating System', 'CPU', 'RAM', 'Graphics', 'Storage']
 Specific = ['Operating System', 'CPU', 'RAM', 'Graphics', 'Storage', 'Motherboard', 'Ex IP Address', 'NetBIOS Name']
@@ -42,8 +39,6 @@ file_list.sort()   # 파일명 불러옴
 #
 # testtree = Et.parse(testfile)
 # print(testtree)
-
-
 
 for i in file_list:
     name_list.append(i.split('.')[0])  # 엑셀 시트의 Name 행에 들어갈 파일명 분리
@@ -83,7 +78,6 @@ for pxml in tree_list:
                              "entry[@title='NetBIOS Name']")
     result.append(network_IP.attrib['value'])
     result.append(network_BIOS.attrib['value'])
-
 
 # wb = xl.load_workbook()
 wb = xl.load_workbook(str(save_path))
